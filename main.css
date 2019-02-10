@@ -1,0 +1,159 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.grass, .sky, .road, .runway {
+    position: relative;
+}
+
+.sky{
+    height: 40%;
+    background: skyblue;
+}
+
+.grass{
+    height: 10%;
+    background: seagreen;
+}
+
+.runway{height: 20%;
+    background:20% grey;
+    width: 20% 0% 20% 0% 20%;
+    position: center;
+}
+
+.road{
+    height: 30%;
+    background: dimgrey;
+    box-sizing: border-box;
+    border-top: 10px solid grey;
+    border-bottom: 10px solid grey;
+    width: 100%;
+}
+
+
+
+.lines{
+    box-sizing: border-box;
+    border: 5px dashed #fff;
+    height: 0px;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+}
+
+.plane1{
+    position: absolute;
+    width:200px;
+    left: 0px;
+    top: -30px;
+    animation-name: left-right-takeoff;
+    animation-delay: 7s;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;    
+    animation-timing-function: linear;
+}
+.plane2{
+    position: absolute;
+    width:200px;
+    right: 1000px;
+    top: 120px;
+    animation-name: right-left-landing, jump;
+    animation-delay: 5s;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+.space{
+    position: absolute;
+    width:200px;
+    right: 500px;
+    top: 0px;
+    animation-delay: 0s;
+    animation-name: spacelanding;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.planestraight{
+    position: absolute;
+    width:400px;
+    right: 500px;
+    top: -100px;
+    animation-delay: 3s;
+    animation-name: comingin;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.cloud{
+    position: absolute;
+}
+
+.cloud:nth-child(1){
+    width: 200px;
+    top: 120px;
+    opacity: 0.5;
+
+    animation: wind 80s linear infinite reverse;
+}
+.cloud:nth-child(2){
+    width: 300px;
+    top: 0;
+    animation: wind 50s linear infinite reverse;
+}
+
+/*//KEYFRAMES//*/
+
+@keyframes ride{
+    from{transform: translateX(-200px)}
+    to{transform: translateX(1500px)};
+}
+
+@keyframes wind{
+    from{left: -300px}
+    to{left:100%}
+}
+
+@keyframes left-right-takeoff{
+    0% {transform: rotate(0deg)translate(-200px,100px)}
+    50% {transform: rotate(-15deg)translate(200px,100px)}
+    75% {transform: rotate(-30deg)translate(400px,100px)}
+    80% {transform: rotate(-30deg)translate(600px,100px)}
+    85% {transform: rotate(-30deg)translate(800px,100px)}
+    90% {transform: rotate(-30deg)translate(900px,100px)}
+    95% {transform: rotate(-30deg)translate(1000px,100px)}
+    100% {transform: rotate(-30deg)translate(2000px,100px)}
+}
+
+@keyframes right-left-landing{
+    0% {transform: rotate(-50deg)translate(1500px,500px)}
+    50% {transform: rotate(0deg)translate(0px,0px)}
+    50% {transform: rotate(0deg)translate(0px,0px)}
+    60% {transform: rotate(0deg)translate(0px,-100px)}
+    70% {transform: rotate(0deg)translate(0px,0px)}
+    100% {transform: rotate(0deg)translate(-250px,0px)}
+}
+
+@keyframes spacelanding {
+    0% {transform: scale(100)}
+    50% {transform: translate(400px, 1000px)}
+    50% {transform: translate(500px, 1300px)}
+}
+
+@keyframes comingin {
+    0% {transform: scale(0)translate(0px, -2000px)}
+    100% {transform: scale(100)translate()}
+}
+ 
+ 
